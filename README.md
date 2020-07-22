@@ -278,8 +278,34 @@ HLS를 지원하지 않는 상황을 고려해 단일 MP4 비디오 스트림을
 - Video Processing: ffmpeg, ffprobe, x264, AtomicParsley, mediainfo
 - Compute: AWS Lambda, AWS Step Functions
 - Storage: AWS DynamoDB, AWS S3
-- Networking: AWS CloudFront, AWS API Gateway
+- Networking: AWS CloudFront, AWS API Gateway, Akamai
 - Others: AWS Athena, Facebook Open Graph, Twitter Card, Youtube Data API, Twitch API, Naver TV, V LIVE, Proxy
+
+#### Sitemap Service 개발
+
+*2018.05*
+
+Vingle 서비스의 Sitemap을 생성하는 서비스를 설계하고 개발했습니다.
+
+##### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, Nock
+- Compute: AWS Lambda, AWS Step Functions
+- Storage: AWS DynamoDB, AWS S3, AWS SQS
+- Networking: AWS CloudFront, AWS API Gateway
+- Others: AWS Athena, Sitemap, Google Search Console API
+
+#### Mail Service 개발 
+
+*2018.10*
+
+Vingle 서비스 내에서 메일을 발송하기 위한 메일 서비스를 설계하고 개발했습니다. 
+
+##### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, Nock
+- Compute: AWS Lambda, AWS Step Functions
+- Storage: AWS S3
+- Networking: AWS API Gateway
+- Others: Sendgrid, Litmus, AWS Athena
 
 
 #### Key Transaction Monitor 개발
@@ -314,7 +340,25 @@ Branch 통합이 여러 플랫폼에 걸쳐있기 때문에, 전환되는 플로
 - Compute: AWS Lambda, AWS DeviceFarm
 - Storage: AWS DynamoDB, AWS S3
 - Others: Chrome DevTools Protocol, UIAutomator, XCUITest
-  
+
+
+#### 신규 서비스 개발
+
+*2019.11 ~*
+
+신규 서비스 설계 및 개발을 진행했습니다. 공개되지 않은 제품이기 때문에 상세 내용이 궁금하시다면 연락해주시기 바랍니다.
+
+
+##### Related Features
+
+- Realtime Messaging
+    - Message Persistence
+    - Typing Indicator
+    - Presence Indicator
+    - Emoji Reactions
+- Image Proxy
+- File Proxy, File Server
+
 
 </details>
 
