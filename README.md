@@ -4,6 +4,7 @@
 
 ![Profile Photo](assets/mooyoul.jpg)
 
+- [Simple Resume](assets/resume.pdf)
 - Email: mooyoul@gmail.com
 - LinkedIn: https://www.linkedin.com/in/mooyoul/
 - SlideShare: https://www.slideshare.net/mooyoul
