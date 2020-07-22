@@ -615,6 +615,7 @@ Details
 - [AWSKRUG Serverless Meetup - Serverless Programmable Voice](https://www.slideshare.net/mooyoul/serverless-programmable-voice)
 - [Vingle Tech Blog - GIF 사용을 멈춰주세요!](https://medium.com/vingle-tech-blog/stop-using-gif-as-animation-3c6d223fd35a)
 - [AWSKRUG Serverless Meetup - Serverless Media Workflow](https://www.slideshare.net/mooyoul/serverless-media-workflow-95267586)
+- [AWSKRUG Seminar Serverless 특집 - Apex를 사용한 Lambda function 관리 및 배포](assets/apex.pdf)
 - [AngularJS in Production](https://www.slideshare.net/mooyoul/angularjs-in-production-67292391)
 - [Google API로 만드는 더 풍부한 백오피스](https://www.slideshare.net/mooyoul/gdg-incheon-devfest-2016-google-api)
 
