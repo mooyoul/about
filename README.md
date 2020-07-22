@@ -326,6 +326,8 @@ Branch 통합이 여러 플랫폼에 걸쳐있기 때문에, 전환되는 플로
 
 <details>
 <summary>
+Details
+</summary>
 
 #### 클래식매니저 개발
 
@@ -342,7 +344,6 @@ https://classicmanager.com/
 - Network: AWS CloudFront, AWS API Gateway
 - Others: AWS Athena, Maxmind GeoIP Database
 
-</summary>
 </details>
 
 
