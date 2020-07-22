@@ -700,3 +700,6 @@ Open Collective: https://opencollective.com/mooyoullee
 - Slack: Cleartext Transmission of Sensitive Information (CWE-319), $500 bounty received, undisclosed
 - OO건설: 부적절한 접근 제어 정책, 외부망에서의 비인가 접근 및 세대 홈 오토메이션 (전등 및 가스) 제어 권한 탈취, KISA, 비공개
 
+## Awards
+
+- 경상남도 정보올림피아드 경시부문 동상, 2010
