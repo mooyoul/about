@@ -71,7 +71,7 @@ Details
 ###### Related Techs
 - Software: Node.js, TypeScript, Mocha, Sinon, Lolex, Nock, Ruby on Rails, RSpec
 - Compute: AWS Lambda, Docker, AWS EC2, AWS ECS, AWS OpsWorks
-- Storage: AWS DynamoDB, AWS RDS (Aurora, Postgres), AWS ElastiCache (Redis, Memcached), AWS S3 
+- Storage: AWS DynamoDB, AWS RDS (Aurora, Postgres), AWS ElastiCache (Redis, Memcached), AWS S3, AWS SQS
 - Networking: AWS VPC, AWS API Gateway, AWS CloudFront, OpenVPN
 - CI/CD: Github Actions, Jenkins
 - Monitoring: Sentry, NewRelic APM, NewRelic Synthetics, AWS CloudWatch, Grafana, InfluxDB, telegraf, Bosun, Slack API
@@ -384,7 +384,7 @@ https://classicmanager.com/
 - Software (Backend): Node.js, Javascript, Prerender, Express, Bookshelf, Knex, Passport, Slack API
 - Software (Frontend): Angular.js, Javascript, Sass, Bootstrap, Jade, Webpack
 - Compute: AWS EC2, AWS Lambda
-- Storage: AWS RDS (MySQL), AWS S3, AWS ElastiCache (Redis)
+- Storage: AWS RDS (MySQL), AWS S3, AWS ElastiCache (Redis), AWS SQS
 - Network: AWS CloudFront, AWS API Gateway
 - Others: AWS Athena, Maxmind GeoIP Database
 
