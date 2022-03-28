@@ -314,6 +314,8 @@ SNS 계정으로 회원가입하고 로그인 할 수 있는 기능을 개발했
 
 *2021 Q4*
 
+![Proxy Dashboard](assets/catch-proxy.png)
+
 Whitelisted IP Traffic임에도 불구하고, 리테일러의 예상하지 못한 구성 변경 (e.g. 담당자 실수)으로 접근이 차단되는 경우가 잦아 fallback을 위해 프록시를 도입했습니다.
 일부는 Akamai의 Bot Protection을 사용해 IP Reputation을 확인하고 있어서 부득이하게 Residential Proxy를 통해 이를 우회하도록 했습니다.
 
