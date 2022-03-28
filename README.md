@@ -194,7 +194,8 @@ https://user-images.githubusercontent.com/2101743/160345889-99657f6e-92e8-4f62-9
 
 *2021 Q2*
 
-Image
+![Tracking View](assets/catch-tracking-1.png)
+![Storybook](assets/catch-tracking-2.png)
 
 캐치패션의 상품들은 매우 많고, 상품의 상태 또한 자주 갱신됩니다. 
 특히 가격과 재고에 대한 변동이 매우 빈번한데, 이러한 변동 이력들을 기록하고 찾을 수 있는 시스템을 설계하고 개발했습니다.
