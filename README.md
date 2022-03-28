@@ -46,6 +46,366 @@
 
 ## Work Experiences
 
+### Smile Ventures (CATCH FASHION)
+
+*2020.08 ~ 2022.04 (1년 9개월) / Senior Software Engineer*
+
+https://www.catchfashion.com/
+
+명품 쇼핑 플랫폼인 캐치패션 서비스 개발에 참여했습니다. 신규 기능 설계부터 개발, 배포, 이후 개선까지 모든 단계를 담당했고, 
+필요한 경우 백오피스를 포함해 롤에 구애받지 않고 백엔드 뿐만 아니라 프론트엔드나 모바일까지 필요한 부분을 함께 처리했습니다. 
+
+신규 기능 개발 이외에도 기술적인 도전이 필요한 부분에 대한 리서치나, 원인 파악이 쉽지 않은 이슈 들에 대한 트러블슈팅을 함께 수행했습니다.
+
+<details>
+<summary>
+Details
+</summary>
+
+
+#### 메일 템플릿 시스템 개발
+
+*2020 Q3*
+
+캐치패션의 마케터가 손쉽게 프로모션 이메일을 만들 수 있도록, 내부적으로 사용하는 메일 템플릿 시스템을 개발했습니다.
+복잡도를 낮추고, 확장성을 높이기 위해 Slack의 Block Kit에서 영감을 받아 Block을 쌓아 메일 템플릿을 만들 수 있도록 구현했고,
+템플릿을 손쉽게 편집할 수 있는 에디터도 함께 만들었습니다. 
+만들어진 템플릿은 시스템 내부적으로는 JSON으로 저장되지만, 최종적으로는 HTML로 렌더되어 마케터가 Braze와 같은 CRM 서비스에서 손쉽게 가져다 쓸 수 있습니다.
+
+파편화된 이메일 마크업을 줄이기 위해 MJML을 내부적으로 사용해서 컴포넌트를 만들고, Litmus의 도움을 받아 이메일 클라이언트마다 보여지는 모습이 크게 차이가 없도록 노력했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, MJML, Juice, Litmus
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+##### Related non-code contributions
+
+- [mjmlio/mjml - #2024 Passing `undefined` into attribute value bypasses `defaultAttributes`](https://github.com/mjmlio/mjml/issues/2024)
+- [remarkjs/remark - #552 Inline only Markdown?](https://github.com/remarkjs/remark/issues/552)
+
+
+#### 내부 라이브러리 개선
+
+*2020 Q3*
+
+![corgi v4](https://user-images.githubusercontent.com/2101743/94349498-c754c480-007f-11eb-9774-c2d9696c727d.gif)
+
+내부 서비스에서 사용하고 있는 API 프레임워크인 [@serverless-seoul/corgi](https://github.com/serverless-seoul/corgi)에 Typed Parameter와 Typed Entity를 사용할 수 있게 개선했습니다.
+개선된 Typed Parameter와 Typed Entity는 JSONSchema 형식으로 외부에 노출되며, 코드 수준에서의 타입 추론 또한 가능하여 더욱 안전하게 코드를 작성할 수 있습니다.
+
+개선사항 적용과 함께 내부에서 사용하고 있는 Service SDK 또한 변경된 규격을 사용하도록 변경하고, Schema Reference와 같은 특수 케이스들도 대응할 수 있도록 SDK를 개선했습니다.
+
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, OpenAPI, JSONSchema, Typebox, ts-json-schema-generator, TypeScript AST
+
+##### Related contributions
+
+- [vega/ts-json-schema-generator - #507 Incompatible with io-ts?](https://github.com/vega/ts-json-schema-generator/issues/507)
+- [vega/ts-json-schema-generator - #522 Support tuple type narrowing, fix call expression parser](https://github.com/vega/ts-json-schema-generator/pull/522)
+- [sinclairzx81/typebox - #36 Let Composition types to rely on variadic tuple types](https://github.com/sinclairzx81/typebox/pull/36)
+
+
+#### 외부 상품 카탈로그 개발
+
+*2020 Q3*
+
+광고에서 사용되는 [Facebook Product Catalog](https://www.facebook.com/business/help/120325381656392?id=725943027795860), [Criteo Product Catalog](https://help.criteo.com/kb/guide/en/product-catalog-specifications-x6IPthZ4ZW/Steps/886830,886860,886864), [Google Shopping Catalog](https://support.google.com/merchants/answer/7052112?hl=en), 그리고 네이버 지식쇼핑 노출을 위한 [Naver EP Catalog](https://join.shopping.naver.com/misc/download/ep_guide.nhn)를 생성하는 시스템을 설계하고 개발했습니다.
+
+카탈로그에 따라 다르지만 보통 10만개에서 50만개 사이의 상품을 포함하며, 이미 구현되어 있는 내부 비즈니스 로직 (e.g. 세금/배송비 계산, 할인 적용여부 등)을 재사용하여 CSV나 TSV로 내보내야하는데, 
+모든 컴퓨팅 환경은 AWS Lambda를 사용하고 있기 때문에 시간과 리소스 모두 제한된 상태로 요구사항을 충족시키는 것 자체가 쉬운 작업은 아니었습니다.
+
+시간과 리소스를 모두 아끼기 위해 ETL 파이프라인 일부를 Stream 기반으로 구현했으며, 이 덕분에 작업이 512MB memory size 기준 10분 내 완료될 수 있었습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, Looker, LookML, Fivetran, Google Sheets
+- Compute: AWS Lambda
+- Storage: AWS S3, AWS ElastiCache (Redis), Google BigQuery
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 상품 동기화 시스템 개선
+
+*2020 Q4*
+
+캐치패션은 300만개 이상의 상품이 등록되어 있으며, 파트너사의 가격이나 재고가 수시로 변동됩니다. 
+이러한 정보들을 주기적으로 일괄 갱신하는 것은 모두에게 부담이고 사실상 불가능에 가깝기 때문에, 특정한 조건에서만 갱신을 시도합니다. (e.g. 유저가 상품을 봤는데, 마지막 업데이트가 오래 된 경우)
+이러한 stale 상태의 정보들을 보는 것은 유저에게 좋은 경험을 제공하기가 어려우므로, 인기 있는 상품에 대해서는 빈번한 업데이트를 수행하도록 변경하고, "곧 stale이 되는" 상품들을 갱신하도록 작업을 스케쥴링해 유저가 상품을 볼 때 더 높은 확률로 최신의 정보를 볼 수 있도록 시스템을 개선했습니다.
+
+또한, 최대한의 처리량을 가지기 위해 Concurrency를 전역으로 관리하지 않고 대상 호스트마다 독립적으로 제어하도록 변경하고, 대상 호스트 요청에 대한 Metric을 기록해 모니터링할 수 있도록 하였습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, Looker
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB, AWS SQS, Google BigQuery
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 스타일 시스템 구현
+
+*2021 Q1*
+
+`브랜드 + 라인` / `브랜드 + 카테고리` / `브랜드 + 카테고리 + 라인` 과 같이 복합된 의미를 더 손쉽게 찾을 수 있도록 하는 내부 엔티티이며, 일종의 사용자 정의 사전입니다. 
+검색어 추천을 위한 목적으로 기능을 만들었으며, 후술할 검색 시스템 개선에서 사용되었습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 엔티티 검색 구현
+
+*2021 Q1*
+
+Image
+
+주어진 검색어에 대해 캐치패션에 존재하는 모든 엔티티를 검색할 수 있는 시스템을 설계하고 개발했습니다.
+
+엔티티 검색은 다음과 같은 특성 또한 가지고 있습니다:
+- 오타 내결함성: `발랭시아가` -> `발렌시아가` 매치, `발랜` -> `발렌티노` or `발렌티아가` 매치
+- 로마자 변환: `qkffpstldkrk` -> `발렌시아가` 매치
+- 동의어 매칭: `가방` -> `백` 매치, `louis vuitton` -> `루이비통` 매치
+- 스코어에 인기도 반영: `이자벨 마랑` -> `이자벨 마랑`이 `이자벨 마랑 에뚜왈` 보다 더 높은 스코어를 가짐
+
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, AWS OpenSearch (ElasticSearch)
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 상품 가격/재고 이력 추적 시스템 개발
+
+*2021 Q2*
+
+Image
+
+캐치패션의 상품들은 매우 많고, 상품의 상태 또한 자주 갱신됩니다. 
+특히 가격과 재고에 대한 변동이 매우 빈번한데, 이러한 변동 이력들을 기록하고 찾을 수 있는 시스템을 설계하고 개발했습니다.
+
+상품이 300만개가 넘고 갱신 주기 또한 짧으면 10분에서 30분 사이이기 때문에 데이터 포인트가 매우 많은데, 
+이를 단순히 텍스트로 쌓는건 쉽지만 빠르게 쿼리할 수 있도록 하는게 매우 어려웠습니다.
+
+기존에 InfluxDB를 잘 사용했던 기억이 있어서 데이터 쿼리를 위해 InfluxDB를 사용했으나, 3개월분 데이터에 대한 쿼리가 1분 이상 소요되는 문제가 있었는데요.
+리서치 결과 현재 InfluxDB의 디자인 자체가 High Cardinality에 상당히 취약했고, Apache Arrow에 기반해서 만들어진 차세대 InfluxDB 제품인 Influx IOx에서 이 문제가 해결된다고는 하나 개발 중인 상태라 InfluxDB를 프로덕션 환경에서 사용하기는 어렵다고 판단하고 다른 대체제를 고려했습니다.
+
+High Cardinality 이슈가 없고, Fully-Managed Service로 서비스를 사용할 수 있어서 최종적으로 TimescaleDB을 선택했습니다.
+InfluxDB에서 1분 이상 걸리던 쿼리가 제일 저렴한 인스턴스 기준으로 ~50ms 수준 밖에 걸리지 않고, 빌트인으로 제공되는 Chunk Compression과 Continuous Aggregate를 통해 View Table을 추가적으로 만들고 스토리지 공간도 아낄 수 있어서 프로덕션에서 사용하기로 결정했고, 무사히 서비스를 구현해 올릴 수 있었습니다.
+
+백엔드 뿐만 아니라 백오피스에서 이를 탐색할 수 있도록 프론트엔드 작업도 함께 작업했으며, 시각화를 위해 visx 기반의 isomorphic 그래프 라이브러리 (viscose)와 Server-Side graph rendering service (viscose-renderer)도 구현했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, Knex, React, Storybook, visx
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB, AWS S3, InfluxDB, TimescaleDB
+- Networking: AWS VPC, AWS API Gateway, AWS Kinesis Stream, AWS Kinesis Firehose
+- CI/CD: Github Actions
+
+##### Related contributions
+
+- [influxdata/telegraf - #9031 Input: AWS Kinesis Consumer - New line delimited JSON string support](https://github.com/influxdata/telegraf/issues/9031)
+- [influxdata/ui - #1175 Chronograf becomes unresponsive when loading metric filter in Notebook](https://github.com/influxdata/ui/issues/1175)
+
+
+#### 외부 마케팅 서비스를 위한 API 개발
+
+*2021 Q2*
+
+Image
+
+외부 CMS 서비스인 Braze에서 캐치패션 내의 데이터가 필요한 경우 (e.g. 유저 정보, 유저가 장바구니에 담은 상품 목록 등), 이를 안전하게 접근해서 가져갈 수 있도록 Marketing Integration API를 설계하고 개발했습니다.
+Braze 뿐만 아니라 앞으로 추가될 다양한 플랫폼을 고려해 설계했으며, API 인증의 경우에도 Basic Authentication, Custom Header Authentication 모두 지원하도록 구현했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon
+- Compute: AWS Lambda
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 컬렉션 시스템 개발
+
+*2021 Q2*
+
+Image
+
+상품을 모아볼 수 있는 컬렉션 시스템을 설계하고 개발했습니다.
+MD가 기획전 성격으로 직접 상품을 선택해서 컬렉션을 생성할 수도 있고, 시스템이 자동화된 규칙에 의해 상품을 선택해 컬렉션을 자동 생성하고 갱신할 수도 있습니다.
+자동으로 만들어진 컬렉션의 대표적인 예로는 "이번주에 가장 많이 본 상품"이나, "구찌 Weekly TOP 50" 처럼 특정 세그먼트에서의 랭킹이 있습니다.
+
+이렇게 만들어진 컬렉션들은 지정한 Targeting 설정에 따라 캐치패션 플랫폼의 여러 Placement에 노출되어 유저가 빠르게 특정 상품군을 탐색할 수 있도록 하였습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, AWS OpenSearch (ElasticSearch), Looker, LookML
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB, 
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 가격 / 재입고 알림 시스템 개발
+
+*2021 Q3*
+
+Image
+
+상품 가격/재고 이력 추적 시스템을 기반으로, 상품의 가격이 일정 수준 하락하거나, 품절된 상품이 재입고 되는 경우 이를 추적하고 유저에게 알림을 보낼 수 있는 시스템을 설계하고 개발했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon
+- Compute: AWS Lambda
+- Storage: AWS DynamoDB
+- Networking: AWS VPC, AWS API Gateway, AWS Kinesis Stream
+- CI/CD: Github Actions
+
+
+#### 메일 프록시 개발
+
+*2021 Q4*
+
+Image
+
+파트너사에 고객 이메일 주소 전달이 필요한 경우, 고객의 이메일 주소를 그대로 노출하지 않고 가상의 이메일 주소를 전달할 수 있도록 메일 프록시를 개발했습니다.
+이를 통해 고객의 이메일 주소를 보호하고, 파트너사 메일 수신 여부를 고객이 캐치패션 서비스 내에서 직접 제어할 수 있습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon, nodemailer, mailparser
+- Compute: AWS Lambda
+- Networking: AWS VPC, AWS API Gateway, AWS SES, AWS Route53
+- CI/CD: Github Actions, AWS CDK
+
+
+#### 소셜 로그인/회원가입 개발
+
+*2021 Q4*
+
+Image
+
+SNS 계정으로 회원가입하고 로그인 할 수 있는 기능을 개발했습니다. Popup 기반의 Federation flow로 처음 릴리즈를 했고, 
+일부 In-app WebView (e.g. Instagram) Popup 기반의 federation flow가 정상 동작하지 않는 문제가 있어 Redirection 기반 Federation flow로 다시 변경했습니다.
+백엔드 뿐만 아니라 프론트엔드도 함께 작업했으며, Android App과 iOS App 또한 일부 Provider 구현은 직접 처리했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Mocha, Sinon / Kotlin / Swift, Swift UI
+- Compute: AWS Lambda
+- Storage: AWS RDS (Aurora)
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### 프록시 도입
+
+*2021 Q4*
+
+Image
+
+Whitelisted IP Traffic임에도 불구하고, 리테일러의 예상하지 못한 구성 변경 (e.g. 담당자 실수)으로 접근이 차단되는 경우가 잦아 fallback을 위해 프록시를 도입했습니다.
+일부는 Akamai의 Bot Protection을 사용해 IP Reputation을 확인하고 있어서 부득이하게 Residential Proxy를 통해 이를 우회하도록 했습니다.
+
+Proxy Provider 탐색부터 테스팅, 계약, 기존 시스템 통합, 그리고 모니터링까지 모두 담당해서 처리했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, Got, http2-wrapper, Looker
+- Compute: AWS Lambda
+- Networking: AWS VPC, BrightData, Oxylabs, Infatica
+- CI/CD: Github Actions
+
+##### Related contributions
+- [szmarczak/http2-wrapper - #83 Adding `timeout` support to Proxy connection](https://github.com/szmarczak/http2-wrapper/issues/83)
+
+
+#### 미디어 서비스 개선
+
+*2021 Q4*
+
+외부 이미지 요청을 매번 그대로 요청하지 않고 캐시해 외부 트래픽을 줄이고 더 나은 성능을 보여주도록 개선하고,
+내부에서 사용하는 각종 네이티브 라이브러리에 대해 Prebuilt binary를 직접 빌드해서 제공하고, Lambda Runtime에 최적화하는 작업을 진행했습니다.
+
+###### Related Techs
+- Software: Node.js, TypeScript, OpenCV, sharp, libvips, node-canvas, cairo, pango, fontconfig, freetype, glib
+- Compute: AWS Lambda
+- CI/CD: Github Actions
+
+##### Related contributions
+- [prebuild/prebuild - #289 Using `strip` with `include-regex` is breaking build](https://github.com/prebuild/prebuild/issues/289)
+
+
+#### Image Composition 시스템 개발
+
+*2022 Q1*
+
+Image
+
+주어진 입력을 받아 이미지를 만들 수 있는 시스템을 개발했습니다.
+원하는 Drawing backend를 선택할 수 있도록 했고 (e.g. Composition A에서는 sharp 사용, Composition B에서는 canvas 사용, Composition C에서는 외부 API 사용),
+시간이 오래 소요되는 무거운 Composition을 대비해 Preview rendering mode와 Background processing을 지원하도록 구현했습니다.
+
+
+###### Related Techs
+- Software: Node.js, TypeScript, OpenCV, sharp, canvas, fabric.js
+- Compute: AWS Lambda
+- Storage: AWS S3, AWS SQS
+- Networking: AWS VPC, AWS API Gateway
+- CI/CD: Github Actions
+
+
+#### Distributed Tracing 도입
+
+Image
+
+서비스 내에서 발생하는 다양한 이슈들을 추적하기 위해 Distributed Tracing을 도입했습니다.
+
+크게 세번의 큰 변화가 있었는데, 처음에는 Datadog을 사용하는것으로 시작해서 내부 라이브러리에 맞춘 여러 Instrumentation들을 구현했으며,
+두번째에는 Datadog을 사용하지 않고 Datadog Trace를 가로채서 Jaeger로 전달해서 사용했습니다. 하지만 Cloudwatch Logs의 Log Ingestion cost가 너무 큰 문제가 있어서 이렇게 사용하는건 포기했습니다.
+세번째에는 완전히 Datadog 종속성을 걷어내고, Jaeger Infra를 다시 구성하고 기존 Tracing 라입러리들도 OpenTelemetry로 모두 전환했으며, 손쉽게 Tracing을 구성하기 위해 Serverless Plugin을 추가로 제공했습니다.
+
+최종적으로는 CloudWatch Logs를 사용하는 것 대신 Lambda Extension에서 Trace를 Kinesis Stream으로 보내고, Kinesis Stream Consumer가 수신한 Trace를 Jaeger로 전달하도록 구성했습니다. 
+상용 서비스와 다르게 높은 Sampling Rate를 가질 수 있고, 더 저렴한 비용으로 Tracing Infra를 운영할 수 있었습니다.
+
+덕분에 재현이 어려운 타임아웃 이슈들을 추적하거나, Deadlock이 발생해서 원인을 찾아야 할 때에도 도움을 받을 수 있었습니다.
+
+
+###### Related Techs
+- Software: Node.js, TypeScript, Datadog, Jaeger, Apache Thrift, OpenTelemetry, AWS OpenSearch (ElasticSearch)
+- Compute: AWS Lambda, AWS Lambda Extension (External Type), AWS Fargate
+- Networking: AWS VPC, AWS API Gateway, AWS Kinesis Stream, AWS ALB (with Cognito Authentication)
+- CI/CD: Github Actions
+
+
+#### Branch 도입
+
+Deferred Deep Link 지원을 위해 Branch를 Android App과 iOS App에 적용하는 업무를 수행했습니다.
+
+
+###### Related Techs
+- Software: Kotlin / Swift, Swift UI, Combine
+
+
+#### 프론트엔드 업무 지원
+
+Image
+
+일부 프론트엔드 업무를 가져가서 처리했습니다. 
+유저가 쓰는 프로덕트와 백오피스 모두 작업했습니다.
+
+
+###### Related Techs
+- Software: Node.js, TypeScript, React, React Query, Styled Components, Material UI, CRA
+
+
+</details>
+
+
 ### Vingle
 
 *2017.03 ~ 2020.05 (3년 2개월) / Senior Software Engineer, Backend*
@@ -323,10 +683,9 @@ Vingle 서비스 내에서 메일을 발송하기 위한 메일 서비스를 설
 
 **Test Sessions**
 
-Android | iOS
-------- | ---
-![Android](assets/vingle-key-transactions-monitor-android.gif) | ![iOS](assets/vingle-key-transactions-monitor-ios.gif)
-
+| Android                                                        | iOS                                                    |
+|----------------------------------------------------------------|--------------------------------------------------------|
+| ![Android](assets/vingle-key-transactions-monitor-android.gif) | ![iOS](assets/vingle-key-transactions-monitor-ios.gif) |
 
 빙글에서는 마케팅을 통해 유입된 유저들이 대부분 모바일 웹으로 랜딩하게 되고, 앱 설치를 유도했었습니다.
 앱 설치 이후 모바일 웹에서 보던 컨텐츠를 앱 내에서 이어서 볼 수 있도록 Branch를 사용해 integration을 구성했었는데, 코드 변경으로 인해 이 기능이 올바르게 작동하지 않아 전환이 되지 않는 문제가 종종 발생했었습니다.
@@ -499,7 +858,7 @@ Sitemap 생성, 데이터 트레이닝과 같은 무거운 작업들을 단순 C
 *2013.9 ~ 2014.11 (1년 3개월) / Software Engineer*
 
 주니어 엔지니어로서, 더 많은 경험을 쌓고 성장하고 싶어 프리랜서로 여러 프로젝트를 수행했습니다.
-외국어 과외 중개 서비스와 효율적인 광고 집행을 위한 크롤링 서비스를 개발하고, 평소 관심있었던 IoT 비즈니스와 임베디드 소프트웨어 개발에 대해 경험을 쌓고자 지원사업을 도움을 받아 수면등을 개발했습니다. 
+외국어 과외 중개 서비스와 효율적인 광고 집행을 위한 크롤링 서비스를 개발하고, 평소 관심있었던 IoT 비즈니스와 임베디드 소프트웨어 개발에 대해 경험을 쌓고자 지원사업의 도움을 받아 수면등을 개발했습니다. 
 
 <details>
 <summary>
