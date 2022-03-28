@@ -67,6 +67,10 @@ Details
 
 *2020 Q3*
 
+https://user-images.githubusercontent.com/2101743/160345404-3f54b2e8-3572-451c-8af3-df7f24f5e683.mp4
+
+https://user-images.githubusercontent.com/2101743/160345443-d37e6d57-c1b8-46f3-970e-282ea481c0bb.mp4
+
 캐치패션의 마케터가 손쉽게 프로모션 이메일을 만들 수 있도록, 내부적으로 사용하는 메일 템플릿 시스템을 개발했습니다.
 복잡도를 낮추고, 확장성을 높이기 위해 Slack의 Block Kit에서 영감을 받아 Block을 쌓아 메일 템플릿을 만들 수 있도록 구현했고,
 템플릿을 손쉽게 편집할 수 있는 에디터도 함께 만들었습니다. 
