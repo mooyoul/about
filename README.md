@@ -169,7 +169,9 @@ https://user-images.githubusercontent.com/2101743/160345443-d37e6d57-c1b8-46f3-9
 
 *2021 Q1*
 
-Image
+
+https://user-images.githubusercontent.com/2101743/160345889-99657f6e-92e8-4f62-9dc1-d796d99ae9b2.mp4
+
 
 주어진 검색어에 대해 캐치패션에 존재하는 모든 엔티티를 검색할 수 있는 시스템을 설계하고 개발했습니다.
 
