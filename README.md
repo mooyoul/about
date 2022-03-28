@@ -296,7 +296,7 @@ MD가 기획전 성격으로 직접 상품을 선택해서 컬렉션을 생성�
 
 *2021 Q4*
 
-Image
+https://user-images.githubusercontent.com/2101743/160349944-c1926b7d-55b7-4b28-8ee0-4b5c69e08425.mp4
 
 SNS 계정으로 회원가입하고 로그인 할 수 있는 기능을 개발했습니다. Popup 기반의 Federation flow로 처음 릴리즈를 했고, 
 일부 In-app WebView (e.g. Instagram) Popup 기반의 federation flow가 정상 동작하지 않는 문제가 있어 Redirection 기반 Federation flow로 다시 변경했습니다.
