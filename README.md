@@ -228,8 +228,6 @@ InfluxDB에서 1분 이상 걸리던 쿼리가 제일 저렴한 인스턴스 기
 
 *2021 Q2*
 
-Image
-
 외부 CMS 서비스인 Braze에서 캐치패션 내의 데이터가 필요한 경우 (e.g. 유저 정보, 유저가 장바구니에 담은 상품 목록 등), 이를 안전하게 접근해서 가져갈 수 있도록 Marketing Integration API를 설계하고 개발했습니다.
 Braze 뿐만 아니라 앞으로 추가될 다양한 플랫폼을 고려해 설계했으며, API 인증의 경우에도 Basic Authentication, Custom Header Authentication 모두 지원하도록 구현했습니다.
 
@@ -244,7 +242,9 @@ Braze 뿐만 아니라 앞으로 추가될 다양한 플랫폼을 고려해 설�
 
 *2021 Q2*
 
-Image
+![Collction 1](assets/catch-collection-1.png)
+![Collction 2](assets/catch-collection-2.png)
+![Collction 3](assets/catch-collection-3.png)
 
 상품을 모아볼 수 있는 컬렉션 시스템을 설계하고 개발했습니다.
 MD가 기획전 성격으로 직접 상품을 선택해서 컬렉션을 생성할 수도 있고, 시스템이 자동화된 규칙에 의해 상품을 선택해 컬렉션을 자동 생성하고 갱신할 수도 있습니다.
@@ -264,7 +264,9 @@ MD가 기획전 성격으로 직접 상품을 선택해서 컬렉션을 생성�
 
 *2021 Q3*
 
-Image
+![Tracking Alarm 1](assets/catch-tracking-alarm-1.png)
+![Tracking Alarm 2](assets/catch-tracking-alarm-2.png)
+![Tracking Alarm 3](assets/catch-tracking-alarm-3.png)
 
 상품 가격/재고 이력 추적 시스템을 기반으로, 상품의 가격이 일정 수준 하락하거나, 품절된 상품이 재입고 되는 경우 이를 추적하고 유저에게 알림을 보낼 수 있는 시스템을 설계하고 개발했습니다.
 
@@ -279,8 +281,6 @@ Image
 #### 메일 프록시 개발
 
 *2021 Q4*
-
-Image
 
 파트너사에 고객 이메일 주소 전달이 필요한 경우, 고객의 이메일 주소를 그대로 노출하지 않고 가상의 이메일 주소를 전달할 수 있도록 메일 프록시를 개발했습니다.
 이를 통해 고객의 이메일 주소를 보호하고, 파트너사 메일 수신 여부를 고객이 캐치패션 서비스 내에서 직접 제어할 수 있습니다.
@@ -313,8 +313,6 @@ SNS 계정으로 회원가입하고 로그인 할 수 있는 기능을 개발했
 #### 프록시 도입
 
 *2021 Q4*
-
-Image
 
 Whitelisted IP Traffic임에도 불구하고, 리테일러의 예상하지 못한 구성 변경 (e.g. 담당자 실수)으로 접근이 차단되는 경우가 잦아 fallback을 위해 프록시를 도입했습니다.
 일부는 Akamai의 Bot Protection을 사용해 IP Reputation을 확인하고 있어서 부득이하게 Residential Proxy를 통해 이를 우회하도록 했습니다.
@@ -351,7 +349,7 @@ Proxy Provider 탐색부터 테스팅, 계약, 기존 시스템 통합, 그리�
 
 *2022 Q1*
 
-Image
+![Image Composition](assets/catch-image-composition.jpeg)
 
 주어진 입력을 받아 이미지를 만들 수 있는 시스템을 개발했습니다.
 원하는 Drawing backend를 선택할 수 있도록 했고 (e.g. Composition A에서는 sharp 사용, Composition B에서는 canvas 사용, Composition C에서는 외부 API 사용),
@@ -368,7 +366,8 @@ Image
 
 #### Distributed Tracing 도입
 
-Image
+![Tracing Infra Diagram 1](assets/catch-tracing-v1-customized.jpeg)
+![Tracing Infra Diagram 2](assets/catch-tracing-v1-annotated.png)
 
 서비스 내에서 발생하는 다양한 이슈들을 추적하기 위해 Distributed Tracing을 도입했습니다.
 
@@ -400,11 +399,8 @@ Deferred Deep Link 지원을 위해 Branch를 Android App과 iOS App에 적용�
 
 #### 프론트엔드 업무 지원
 
-Image
-
 일부 프론트엔드 업무를 가져가서 처리했습니다. 
 유저가 쓰는 프로덕트와 백오피스 모두 작업했습니다.
-
 
 ###### Related Techs
 - Software: Node.js, TypeScript, React, React Query, Styled Components, Material UI, CRA
